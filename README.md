@@ -49,14 +49,11 @@ classDiagram
     +Usuario propietario
   }
 
-  Usuario "1" --> "1..*" Cuenta : tiene
-  Usuario "1" --> "0..*" Categoria : tiene
-  Usuario "1" --> "1" PanelDeControl : accede a
-  Categoria "1" --> "0..*" Movimiento : contiene
-  Cuenta "1" --> "0..*" Movimiento : contiene
-  Cuenta "1" --> "0..*" Movimiento : contiene
-  Movimiento "1" --> "1" Categoria : pertenece a
-  Movimiento "1" --> "1" Cuenta : pertenece a
-  Cuenta "1" --> "1..*" Cuenta : permite transferir dinero a
-  Usuario "1" --> "0..*" Movimiento : registra
+  Usuario --|> Cuenta : tiene
+  Usuario --|> Categoria : tiene
+  Usuario --> PanelDeControl : accede a
+  Categoria --|> Movimiento : contiene
+  Cuenta --|> Movimiento : registra
+  Categoria --|> Movimiento : contiene
+  Cuenta *--* Cuenta : permite transferir dinero a
 ```
